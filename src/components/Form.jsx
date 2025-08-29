@@ -5,18 +5,19 @@
 import Checkbox from "./Checkbox"
 import Radiobutton from "./Radiobutton"
 
-function Form({onChange}){
+function Form({ onSubmit, values, onChange}){
+
     return (
         <>
-        <form className="form">
+        <form className="form" onSubmit={onSubmit}>
             <h2>Tell us what you think about your rubber duck!</h2>
             <div className="form__group radio">
                 <h3>How do you rate your rubber duck colour?</h3>
-                <Radiobutton />
+                <Radiobutton onChange={onChange} checked={values.checkedColor}/>
             </div>
             <div className="form__group">
                 <h3>How do you like to spend time with your rubber duck</h3>
-                <Checkbox />
+                <Checkbox onChange={onChange} values={values}/>
             </div>
             <label>
                 What else have you got to say about your rubber duck?
@@ -24,27 +25,29 @@ function Form({onChange}){
                     name="review"
                     cols="30"
                     rows="10"
+                    value={values.review}
+                    onChange={onChange}
                 ></textarea>
             </label>
                 <label>Put your name here (if you feel like it):
                     <input
                         type="text"
                         name="username"
-                        value="" 
+                        value={values.inputName}
                         onChange={onChange}/>
                 </label>
             <label>Leave us your email pretty please??
                 <input
                     type="email"
                     name="email"
-                    value="" 
+                    value={values.email}
                     onChange={onChange}/>
             </label>
             <input 
                 className="form__submit" 
                 type="submit" 
                 value="Submit Survey!"
-                onChange={onChange} />
+            />
         </form>
         </>
     )

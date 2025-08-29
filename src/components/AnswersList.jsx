@@ -2,14 +2,20 @@ import AnswersItem from "./AnswersItem";
 
 /* eslint-disable react/prop-types */
 
-export default function AnswersList({ answersList = [] }) {
-  console.log("Inside AnswersList: ", answersList);
-
+export default function AnswersList({ answersList }) {
   return (
     <>
     <ul>
-      {answersList.map((answerItem, i) => (
-        <AnswersItem answerItem={answerItem} key={i} />
+      {answersList.map((answer, i) => (
+        <AnswersItem 
+          key={i} 
+          answerItem={{
+            username: answer.inputName,
+            color: answer.color,
+            timeSpent: answer.spendTime,
+            review: answer.review
+          }} 
+          />
       ))}
     </ul>
     </>

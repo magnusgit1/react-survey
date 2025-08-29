@@ -1,7 +1,7 @@
 
 /* eslint-disable react/prop-types */
 
-function Checkbox() {
+function Checkbox({ onChange, values }) {
     return (
         <>
         <ul>
@@ -10,7 +10,9 @@ function Checkbox() {
                     <input
                         name="spend-time"
                         type="checkbox"
-                        value="swimming"/>
+                        value="swimming"
+                        onChange={onChange}
+                        checked={values.spendTime.includes("swimming")}/>
                     Swimming
                 </label>
             </li>
@@ -19,7 +21,9 @@ function Checkbox() {
                     <input 
                         name="spend-time" 
                         type="checkbox" 
-                        value="bathing" />
+                        value="bathing"
+                        onChange={onChange}
+                        checked={values.spendTime.includes("bathing")} />
                     Bathing
                 </label>
             </li>
@@ -28,7 +32,9 @@ function Checkbox() {
                     <input
                         name="spend-time"
                         type="checkbox"
-                        value="chatting" />
+                        value="chatting" 
+                        onChange={onChange}
+                        checked={values.spendTime.includes("chatting")}/>
                     Chatting
                     </label>
             </li>
@@ -37,7 +43,9 @@ function Checkbox() {
                     <input 
                     name="spend-time" 
                     type="checkbox" 
-                    value="noTime" />
+                    value="noTime" 
+                    onChange={onChange}
+                    checked={values.spendTime.includes("noTime")}/>
                     I dont like to spend time with it
                 </label>
             </li>
