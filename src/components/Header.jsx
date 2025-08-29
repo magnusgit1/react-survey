@@ -1,3 +1,6 @@
+
+/* eslint-disable react/prop-types */
+
 export default function Header() {
   return (
     <header className="header">

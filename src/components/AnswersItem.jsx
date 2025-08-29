@@ -1,6 +1,8 @@
 // Components don't need to be separeted into individual files
 // Here we have a smaller component that helps compose the AnswersItem below
 
+/* eslint-disable react/prop-types */
+
 const answersSet = {
   swimming: "Swimming",
   bathing: "Bathing",
@@ -11,8 +13,8 @@ const answersSet = {
 function ItemsList({ list }) {
   return (
     <ul>
-      {list.map((item) => (
-        <li>{answersSet[item]}</li>
+      {list.map((item, key) => (
+        <li key={key}>{answersSet[item]}</li>
       ))}
     </ul>
   );
