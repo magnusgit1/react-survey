@@ -9,7 +9,7 @@ import { useState } from "react";
 function Survey({ answers, setAnswers }) {
   const [open] = useState(false); //Ignore this state
 
-  const [values, setValues] = useState({
+  const initialState = {
         review:"",
         inputName:"",
         email:"",
@@ -20,7 +20,9 @@ function Survey({ answers, setAnswers }) {
         checkedChatting:false,
         checkedNoTime:false,
         checkedColor:false
-    });
+  }
+
+  const [values, setValues] = useState(initialState)
 
     const onChange = (event) => {
 
@@ -52,6 +54,7 @@ function Survey({ answers, setAnswers }) {
       event.preventDefault();
       console.log(values)
       setAnswers((curr) => [...curr, values])
+      setValues(initialState) 
     }
 
   return (
