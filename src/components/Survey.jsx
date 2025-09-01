@@ -24,6 +24,8 @@ function Survey({ answers, setAnswers }) {
 
   const [values, setValues] = useState(initialState)
 
+  const [editingIndex, setEditingIndex] = useState(null)
+
     const onChange = (event) => {
 
         const eventName = event.target.name 
@@ -54,16 +56,24 @@ function Survey({ answers, setAnswers }) {
 
     const onSubmit = (event) => {
       event.preventDefault();
-      console.log(values)
-      setAnswers((curr) => [...curr, values])
+      if (editingIndex !== null){
+        setAnswers((curr) => curr.map((ans, i) => (i === editingIndex ? values : ans)))
+      } else {
+        setAnswers((curr) => [...curr, values])
+      }
       setValues(initialState) 
+    }
+
+    const onEdit = (index) => {
+      setValues(answers[index])
+      setEditingIndex(index)
     }
 
   return (
     <main className="survey">
       <section className={`survey__list ${open ? "open" : ""}`}>
         <h2>Answers list</h2>
-        <AnswersList answersList={answers}/>
+        <AnswersList answersList={answers} onEdit={onEdit}/>
       </section>
       <section className="survey__form">
         <Form onChange={onChange} values={values} onSubmit={onSubmit}/>
