@@ -5,7 +5,7 @@
 import Checkbox from "./Checkbox"
 import Radiobutton from "./Radiobutton"
 
-function Form({ onSubmit, values, onChange}){
+function Form({ onSubmit, values, onChange }){
 
     return (
         <>
@@ -13,7 +13,7 @@ function Form({ onSubmit, values, onChange}){
             <h2>Tell us what you think about your rubber duck!</h2>
             <div className="form__group radio">
                 <h3>How do you rate your rubber duck colour?</h3>
-                <Radiobutton onChange={onChange} checked={values.checkedColor}/>
+                <Radiobutton onChange={onChange} checked={values.color}/>
             </div>
             <div className="form__group">
                 <h3>How do you like to spend time with your rubber duck</h3>

@@ -30,8 +30,10 @@ function Survey({ answers, setAnswers }) {
         const eventValue = event.target.value
         const eventChecked = event.target.checked
 
+        console.log(eventName, eventValue, eventChecked)
+
         if (eventName === "color"){
-            setValues({ ...values, color: eventValue, checkedColor: eventChecked});
+            setValues({ ...values, color: eventValue });
         } else if (eventName === "review"){
             setValues({ ...values, review: eventValue })
         } else if (eventName === "username"){
